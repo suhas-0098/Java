@@ -185,3 +185,139 @@ A comment in java is non-excutable text used to explain code. The complier ignor
 Single    : // ---   : for short notes
 MultiLine : /*----*/ : for long
 Documentations : /**----*/ : for api or project docs
+
+Package (Folder) :
+------------------
+
+A Package in java is way to group class and interfaces like folders on your computer. It helps to organize code, avoid name conflicts and control access.
+
+Types :
+--------
+
+1. Built - in packages (predefined) like 
+   Java.util, Java.io, Java.sql 
+
+2. User-defined Packages : The ones we create ourselves
+
+eg : file 1 ;
+
+    package MyPackage;
+    public class MyClass{
+     public static void show(){
+       System.out.println("Hello World");
+        } 
+        }
+
+   : file 2 ;
+
+   import MyPackage.MyClass;
+   public class Test {
+    public static void main(String[] args){
+      MyClass obj = new Myclass();
+      obj.show();
+    }
+   }
+
+Main Points : 
+-------------
+
+- Package = Folder for java Class 
+- Helps in code management 
+- Avoids naming conflicts 
+- Controls access
+
+Rules of Variable Declaration :
+-------------------------------
+
+- Case-Sensitive (age != Age)
+- Must begin with a letter , '_' or '$' (but prefer letters)
+- Cannnot start with a digit 
+- No Spaces or special symbols (%,#,@,etc)
+- Cannot be a Java Keyword (eg, int, class , etc)
+- can contain letters digit , '_' or '$' after the first character 
+- use meaningful names (avoid x1, x2, a2)
+- use lowerCamelCase for normal 
+- use UPPER_CASE_WITH_U
+
+What are Data Types :
+---------------------
+
+A data type defines what kind of data a variable can store.
+
+eg : int age = 25 ; --> age is an integer
+     String name = "Suhas"; --> name is string
+
+
+- Think of it as the "shape" or "Category" of the data
+
+- Types : 
+
+**1. Primitive Data Types :** These are the most types directly stored in memory.
+
+- byte, short, int, long, float, double, char, boolean
+
+- A bit is the smallest unit of data in a computer. It can have only two possible values 0 (off) or 1 (on).
+
+- Unicode :
+
+Unicode is a standard system that gives a unique number to every character used in any language.
+
+It helps computers and display text properly across all language 
+
+eg : A = \u0041,
+     a = \u0061, etc
+
+
+**2. Non-Primitive Data Types :**
+
+These are created by the programmers or java itself.
+
+1. String : (sequence of characters)/text
+2. Array  : Collection of same data type values
+3. Class  : Blueprint or template for creating objects
+4. Object : Instance of a class 
+5. Interface : Like a blueprint of a class(contains only method declarations)
+
+
+- Primitive holds value directly 
+- Non-Primitive holds reference(address) of object.
+
+Control Flow :
+--------------
+
+Control flow means the order in which statements, instructions, or function calls are executed in a program
+
+- 3 main types of control flow statements:
+
+1. Decision Making : Choose one path from many
+2. Looping         : Repeat a block of code
+3. Jumping         : Jump from one point to another
+
+- Decision Making : if , if-else, else if ladder , switch statement
+
+- Looping : for , while , do while
+
+- Jumping : break , continue, return
+
+
+What is a method in java ?
+--------------------------
+
+- A method in java is block of statements that perform a specific task.
+- It is also called function
+- method help in resuing code
+- Advantages of methods : 
+  - Orgainzes code
+  - Reuses code
+  - Makes program readable and maintainable.
+
+
+Operators in Java :
+-------------------
+
+Symbols that tell compiler to perform some operation 
+
+1. Arithemtic operators : +,-,*,/,%
+2. Relational operators : ==,!=,>,<,>=,<=
+3. Logical operators    : $$, ||, !
+4. Assignment operators : =
