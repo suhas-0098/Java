@@ -889,10 +889,185 @@ can not create objects of an abstract class directly
     - can have constructors, fields, and normal methods
     - can achieve partial abstraction
 
+```
+package abstraction;
+
+abstract public class BankAccount {
+
+    private String accountNumber;
+    private double balance;
+
+    public abstract void deposit(double amount);
+    public abstract void withdraw(double amount);
+
+    public BankAccount(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+}
+
+package abstraction;
+
+public class CurrentAccount extends BankAccount{
+    public CurrentAccount(String accountNumber, double balance) {
+        super(accountNumber, balance);
+    }
+
+    @Override
+    public void deposit(double amount) {
+        System.out.println("Deposited Current");
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        System.out.println("Withdrawn Current");
+    }
+}
+package abstraction;
+
+public class KidsAccount extends BankAccount{
+
+    public KidsAccount(String accountNumber, double balance) {
+        super(accountNumber, balance);
+    }
+
+    @Override
+    public void deposit(double amount) {
+
+    }
+
+    @Override
+    public void withdraw(double amount) {
+
+    }
+}
+package abstraction;
+
+public class SavingsAccount extends BankAccount{
+    public SavingsAccount(String accountNumber, double balance) {
+        super(accountNumber, balance);
+    }
+
+    @Override
+    public void deposit(double amount) {
+        System.out.println("Deposited");
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        System.out.println("Withdrawn");
+    }
+}
+
+package abstraction;
+
+public class AbstractionDemo {
+    public static void main(String[] args) {
+
+        SavingsAccount savingsAccount = new SavingsAccount("kfgkaofa", 100);
+        savingsAccount.deposit(100);
+
+        BankAccount savingsAccount1 = new SavingsAccount("afasfafca", 500);
+                    savingsAccount1 = new CurrentAccount("Aagwqgwbvgw", 900);
+                    savingsAccount1.deposit(200);
+
+        System.out.println(savingsAccount1.getAccountNumber());
+        savingsAccount1 = new SavingsAccount("SAVING", 1000);
+        System.out.println(savingsAccount1.getAccountNumber());
+    }
+}
+
+
+```
+
 2. Interface :
 
 Pure abstraction only methods signatures 
 declared using interface keyword classes implement the interface using implements keyword
+
+```
+package interfacedemo;
+
+public interface CarControls {
+    void turnRight();
+    void turnLeft();
+    void applyBrakes();
+
+//    default void accelerate() {
+//
+//    }
+}
+
+package interfacedemo;
+
+public class ElectricCar implements CarControls{
+    @Override
+    public void turnRight() {
+        System.out.println("ELECTRIC RIGHT");
+    }
+
+    @Override
+    public void turnLeft() {
+        System.out.println("ELECTRIC LEFT");
+    }
+
+    @Override
+    public void applyBrakes() {
+        System.out.println("ELECTRIC BRAKES");
+    }
+}
+
+package interfacedemo;
+
+public class SportsCar implements CarControls {
+    @Override
+    public void turnRight() {
+        System.out.println("SPORTS RIGHT");
+    }
+
+    @Override
+    public void turnLeft() {
+        System.out.println("SPORTS LEFT");
+    }
+
+    @Override
+    public void applyBrakes() {
+        System.out.println("SPORTS BRAKES");
+    }
+}
+
+package interfacedemo;
+
+public class InterfaceDemo {
+    public static void main(String[] args) {
+//        ElectricCar e1 = new ElectricCar();
+//        e1.applyBrakes();
+//        e1.turnLeft();
+
+        CarControls myCar1 = new ElectricCar();
+        myCar1.turnLeft();
+
+        CarControls myCar2 = new SportsCar();
+        myCar2.turnLeft();
+    }
+}
+```
 
 
 Difference between Abstract class and Interfaces :
