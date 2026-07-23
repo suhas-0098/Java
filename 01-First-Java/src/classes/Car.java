@@ -9,4 +9,8 @@ public class Car {
         System.out.println(brand +" " + color + " is driving at speed " + speed);
     }
 
+    void display(){
+        System.out.println(brand+" "+color+" "+speed);
+    }
+
 }
