@@ -740,6 +740,139 @@ In Java it allows a single method or object to behave differently based on conte
   2. Runtime : Dynamic Polymorphism/ Method overriding
 
 
+```
+public class Vehicle {
+    private String brand;
+    private int speed;
+
+    public Vehicle(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public void start() {
+        System.out.println("Starting Vehicle...");
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void displayInfo() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " hm/hr");
+    }
+}
+
+public class Bike extends Vehicle {
+    private boolean hasCarrier;
+
+    public Bike(String brand, int speed, boolean hasCarrier) {
+        super(brand, speed);
+        this.hasCarrier = hasCarrier;
+    }
+
+    @Override
+    public void start() {
+        System.out.println("Starting Bike...");
+    }
+
+    public void start(String greet) {
+        System.out.println("Starting Bike..." + greet);
+    }
+
+    public boolean isHasCarrier() {
+        return hasCarrier;
+    }
+
+    public void setHasCarrier(boolean hasCarrier) {
+        this.hasCarrier = hasCarrier;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Brand: " + getBrand() + ", Speed: " + getSpeed() + " hm/hr " + hasCarrier);
+    }
+}
+
+public class Car extends Vehicle {
+    private int doors;
+
+
+    public Car(String brand, int speed, int doors) {
+        super(brand, speed);
+//        this.brand = brand;
+        this.doors = doors;
+    }
+
+    @Override
+    public void start() {
+        System.out.println("Starting Car...");
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Brand: " + getBrand() + ", Speed: " + getSpeed() + " hm/hr " + doors + " doors");
+    }
+}
+
+class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+
+
+public class PolymorphismDemo {
+    public static void main(String[] args) {
+        Car c1 = new Car("Toyota", 200, 5);
+        c1.displayInfo();
+
+        Bike b1 = new Bike("Yamaha", 120, true);
+        b1.displayInfo();
+
+        c1.start();
+        b1.start();
+
+        Vehicle v1 = new Vehicle("VehicleBrand", 202);
+        v1.start();
+
+        // Method Overriding (Runtime Polymorphism)
+        Vehicle v2 = new Car("Ford", 210, 6);
+        v2.start();
+
+        Vehicle v3 = new Bike("Yamaha", 120, true);
+        v3.start();
+
+
+        // Method overloading
+        b1.start();
+
+        Calculator calculator = new Calculator();
+        System.out.println("SUM(int): " + calculator.add(5, 6));
+        System.out.println("SUM(int): " + calculator.add(5.6, 6.7));
+    }
+}
+```
+
+
 Abstraction in Java :
 ---------------------
 
