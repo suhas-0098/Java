@@ -1,5 +1,4 @@
 package constructors;
-
 public class ClassesObjectsDemo {
 
     public static void main(String[] args) {
@@ -10,10 +9,5 @@ public class ClassesObjectsDemo {
 
         Car car2 = new Car("BMW","blue",140);
         car2.drive();
-
-        
-
-
-
     }
 }
