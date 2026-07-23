@@ -321,3 +321,360 @@ Symbols that tell compiler to perform some operation
 2. Relational operators : ==,!=,>,<,>=,<=
 3. Logical operators    : $$, ||, !
 4. Assignment operators : =
+
+
+Types of Programming Languages:
+-------------------------------
+
+1. Low-level language :
+
+These are closest to the computer hardware and are directly understood by the machine
+
+eg : Machine language written in binary code 
+
+2. Assembly language : 
+
+uses symbolic codes (like : mov, add, sub, etc)
+used for system programming device drivers and embedded systems
+
+3. High-level Language : 
+
+These are easy for humans to understand and write they require a compiler or interpreter to translate into machine code 
+
+eg : c, c++, java, python etc.
+
+4. Procedural Language :
+
+These are based on a step-by-step procedure or instructions.
+
+eg : c, pascal, fortran
+
+used : Scientific, Mathematical and general purpose programming
+
+5. Functional Language : 
+
+These focus on functions and avoid changing state or data
+
+eg : Lisp, Haskell, Scala
+
+used : Artifical Intelligence, Mathematical computation, and data analysis
+
+6. Scripting Languages :
+
+These are mainly used for automationn and web scripting 
+
+eg : JavaScript, Python, PHP, Perl, etc
+
+used : Web developmenet, automation scripts, and server management
+
+7. Markup and Query Language:
+
+These are used to structure, format or manage data.
+
+eg : HTML, SQL, XML/JSON
+
+8. Object Oriented Programming(OOPs) :
+
+- Everything is represented in the form of objects.
+- Objects are instance of classes
+- Class is like a blueprint, Object is a real thing built from the blueprint
+- OOPs help us desing software by thinking in terms of real-world entities -- like a car, student, bank account etc.
+
+- OOPs Principles : 
+
+**Encapsulation**
+**Abstraction**
+**Inheritance**
+**Polymorphism**
+
+Class in Java : 
+----------------
+
+A class in a blueprint or template for creating objects. It defines what data(variable) and functions(methods) an object will have
+
+```
+public class Car {
+    String brand;
+    String color;
+    int speed;
+
+    public Car(String brand,String color,int speed){
+        this.brand = brand;
+        this.color = color;
+        this.speed=speed;
+    }
+
+    void drive(){
+        System.out.println(this.brand +" " + this.color + " is driving at speed " + this.speed);
+    }
+
+    void display(){
+        System.out.println(this.brand+" "+this.color+" "+this.speed);
+    }
+
+}
+
+```
+
+Object in Java :
+-----------------
+
+An object is an instance of a class- a real example created using that blueprint
+
+```
+public class ClassesObjectsDemo {
+
+    public static void main(String[] args) {
+
+        System.out.println("In the main method");
+        Car car1 = new Car();
+        car1.brand ="Toyota";
+        car1.speed = 100;
+        car1.color = "red";
+        car1.drive();
+
+        Car car2 = new Car();
+        car2.brand ="BMW";
+        car2.speed = 140;
+        car2.color = "Blue";
+        car2.drive();
+
+
+    }
+}
+```
+
+What is a constructor in Java ?
+-------------------------------
+
+A constructor is a special method in java that is automatically called when an object of a class is created.
+
+- Important Rules : 
+  - The constructor's name must be the same as the class name
+  - It has no return type not even void
+
+- Types of Constructors :
+
+  1. Default Constructor : 
+  A constructor with no parameters if you do not define any constructor, java auutomatically provides a default constructor.
+
+  2. Parameterized Constructor : 
+  A constructor that takes parameters to initialize specific values 
+
+  3. Copy constructor(user-defined) :
+  Java does not have a built in copy constructor like c++, but we can make one manually to copy data from an other object
+
+```
+package constructors;
+
+public class Car {
+    String brand;
+    String color;
+    int speed;
+
+    public Car(String brand,String color,int speed){
+        this.brand = brand;
+        this.color = color;
+        this.speed=speed;
+    }
+
+    void drive(){
+        System.out.println(this.brand +" " + this.color + " is driving at speed " + this.speed);
+    }
+
+    void display(){
+        System.out.println(this.brand+" "+this.color+" "+this.speed);
+    }
+
+}
+
+package constructors;
+public class ClassesObjectsDemo {
+
+    public static void main(String[] args) {
+
+        System.out.println("In the main method");
+        Car car1 = new Car("Toyota","red",100);
+        car1.drive();
+
+        Car car2 = new Car("BMW","blue",140);
+        car2.drive();
+    }
+}
+
+```
+
+- Note : 
+**"this"** keyword in java is a reference variable that refers to the current object (the object which is calling the method or constructor)
+
+Getter and Setter in Java :
+---------------------------
+
+Getters and Setters are special methods used to access and modify private variables of a class.
+
+They help in encapsulation hiding data and controlling access to it.
+
+- Why to use them ?
+
+  1. To make class fields private(data hiding)
+  2. To provide controlled access to variables
+  3. To validate or modify data before setting or returning it 
+
+
+what is Encapsulation in Java :
+-------------------------------
+
+Encapsulation means binding data(variables) and method(functions) that operate on the data into a single unit(class) and restricting direct access to the data
+
+- Key concept : 
+
+  - Make variables private not accessible directly
+  - use getter and setter methods to access or modify data safely
+
+- Advantages :
+  1. Data Security
+  2. Data Control 
+  3. Code Flexibility
+  4. Improved Maintenance
+
+```
+package encapsulation;
+
+public class Car {
+    String brand;
+    String color;
+    int speed;
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public Car(String color, int speed, String brand) {
+        this.color = color;
+        this.speed = speed;
+        this.brand = brand;
+    }
+
+
+    void drive(){
+        System.out.println(this.getBrand() +" " + this.getColor() + " is driving at speed " + this.getSpeed());
+    }
+
+
+
+}
+
+
+package encapsulation;
+
+public class ClassesObjectsDemo {
+
+    public static void main(String[] args) {
+
+        Car car1 = new Car("red",100,"Toyota");
+        car1.drive();
+
+        Car car2 = new Car("blue",140,"BMW");
+        car2.drive();
+
+
+    }
+}
+
+```
+
+Inheritance in Java :
+---------------------
+
+Inheritance is a mechanism in java by which one class (child/subclass) can acquire properties and behaviors(Fields and Methods) of another class (Parent/superclass)
+
+- Purpose : 
+  - To reuse code 
+  - To avoid duplication
+  - To establish relationship between classes
+  - To support polymorphism
+
+
+- Types of Inheritance in java :
+  1. Single Inheritance : One class inherits another
+  2. Multilevel Inheritance : Class inherits from another class which is already a subclass
+  3. Hierarchial Inheritance : Multiple Subclasses inherit from one parent 
+  4. Multiple Inheritance (through interfaces) : one class implements multiple interfaces
+
+- Advantages of Inheritance :
+  1. Code Reusability
+  2. Easy Maintenance
+  3. Method Overriding
+  4. Clean Structure
+
+- Rules of Inheritance : 
+  1. Private memebers of parents are not inherited
+  2. constructors are not inherited but can be called using super()
+  3. Java does not support multiple inheritance with classes(only via interfaces)
+  4. Order of Constructor call : Parent, Child
+
+
+Polymorphism in Java :
+----------------------
+
+Polymorphism means "one name with many forms".
+In Java it allows a single method or object to behave differently based on context or object type 
+
+- Types of Polymorphism in Java :
+  1. Compile Time : also called static polymorphism/ method overloading 
+
+  2. Runtime : Dynamic Polymorphism/ Method overriding
+
+
+Abstraction in Java :
+---------------------
+
+Abstraction is the OOP concept of hiding internal implementation details and showing only essential features to the user
+
+1. Abstract class :
+
+A class declared with 'abstract' keyword can have abstract methods(no body) and concrete method(with body) 
+can not create objects of an abstract class directly
+
+  - Key Points :
+    - Abstract class - Blueprint for subclasses
+    - Subclass must implement all abstract method
+    - can have constructors, fields, and normal methods
+    - can achieve partial abstraction
+
+2. Interface :
+
+Pure abstraction only methods signatures 
+declared using interface keyword classes implement the interface using implements keyword
+
+
+Difference between Abstract class and Interfaces :
+--------------------------------------------------
+| Feature               | Abstract class              | Interface                              |
+|------------------------|------------------------------|-----------------------------------------|
+| Inheritance            | extends                     | implements                              |
+| Methods                | Abstract class + concrete   | only abstract (before Java 8)           |
+| Variables              | can have instance variables | only constants (public, static, final)  |
+| Constructor            | yes                          | no                                       |
+| Multiple Inheritance   | Not allowed                  | Allowed                                  |
+| Object creation        | no                            | no                                       |
