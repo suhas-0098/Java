@@ -633,6 +633,100 @@ Inheritance is a mechanism in java by which one class (child/subclass) can acqui
   3. Java does not support multiple inheritance with classes(only via interfaces)
   4. Order of Constructor call : Parent, Child
 
+```
+package inheritance;
+
+public class Vehicle {
+    private String brand;
+    private int speed;
+
+    public Vehicle() {
+    }
+
+    public Vehicle(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public void displayInfo() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " hm/hr");
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+}
+
+package inheritance;
+
+public class Car extends Vehicle {
+    private int doors;
+
+
+    public Car(String brand, int speed, int doors) {
+        super(brand, speed);
+//        this.brand = brand;
+        this.doors = doors;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Brand: " + getBrand() + ", Speed: " + getSpeed() + " hm/hr " + doors + " doors");
+    }
+}
+
+package inheritance;
+
+public class Bike extends  Vehicle{
+    private boolean hasCarrier;
+
+    public Bike(String brand, int speed, boolean hasCarrier) {
+        super(brand, speed);
+        this.hasCarrier = hasCarrier;
+    }
+
+    public boolean isHasCarrier() {
+        return hasCarrier;
+    }
+
+    public void setHasCarrier(boolean hasCarrier) {
+        this.hasCarrier = hasCarrier;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Brand: " + getBrand() + ", Speed: " + getSpeed() + " hm/hr " + hasCarrier);
+    }
+}
+
+package inheritance;
+
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        Car c1 = new Car("Toyota", 200, 5);
+        c1.displayInfo();
+
+        Bike b1 = new Bike("Yamaha", 120, true);
+        b1.displayInfo();
+    }
+}
+
+```
+
 
 Polymorphism in Java :
 ----------------------
